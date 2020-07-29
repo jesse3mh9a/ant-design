@@ -3,12 +3,18 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
+@alert-action-gutter: 8px;
+
 .@{alert-prefix-cls} {
   .reset-component;
 
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
   position: relative;
   max-height: 1000vh;
-  padding: 8px 15px 8px 37px;
+  padding: 8px 15px;
   word-wrap: break-word;
   border-radius: @border-radius-base;
 
@@ -20,14 +26,22 @@
     }
   }
 
-  &&-closable {
-    padding-right: 30px;
+  &&-actionable {
+    padding: 8px 15px 8px - @alert-action-gutter 15px;
   }
 
-  &-icon {
-    position: absolute;
-    top: @alert-icon-top;
-    left: 16px;
+  &&-actionable-no-icon {
+    padding: @alert-no-icon-padding-vertical 15px @alert-no-icon-padding-vertical -
+      @alert-action-gutter 15px;
+  }
+
+  &&-actionable&-with-description {
+    padding: @alert-with-description-padding-vertical 15px @alert-with-description-padding-vertical -
+      @alert-action-gutter 15px;
+  }
+
+  &&-closable:not(&-actionable) {
+    padding-right: 30px;
   }
 
   &-description {
@@ -106,7 +120,8 @@
 
   &-with-description {
     position: relative;
-    padding: @alert-with-description-padding;
+    padding: @alert-with-description-padding-vertical 15px @alert-with-description-padding-vertical
+      @alert-with-description-icon-size;
     color: @alert-text-color;
     line-height: @line-height-base;
     border-radius: @border-radius-base;
@@ -114,13 +129,6 @@
 
   &-with-description&-no-icon {
     padding: @alert-with-description-no-icon-padding-vertical 15px;
-  }
-
-  &-with-description &-icon {
-    position: absolute;
-    top: @alert-with-description-icon-top;
-    left: @alert-with-description-icon-size;
-    font-size: @alert-with-description-icon-size;
   }
 
   &-with-description &-close-icon {
@@ -131,11 +139,35 @@
     cursor: pointer;
   }
 
+  &&-actionable &-close-icon {
+    position: static;
+    margin-left: @alert-action-gutter;
+  }
+
   &-with-description &-message {
     display: block;
     margin-bottom: 4px;
     color: @alert-message-color;
     font-size: @font-size-lg;
+  }
+
+  &-with-description &-icon {
+    align-self: flex-start;
+    font-size: @alert-with-description-icon-size;
+    margin-right: @alert-with-description-padding-vertical;
+  }
+
+  &-icon {
+    margin-right: 7px;
+  }
+
+  &-actionable &-content {
+    padding-bottom: @alert-action-gutter;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
   }
 
   &-message {
@@ -144,6 +176,13 @@
 
   &-with-description &-description {
     display: block;
+  }
+
+  &-action-wrap {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-bottom: @alert-action-gutter;
   }
 
   &&-closing {

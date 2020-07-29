@@ -42,6 +42,7 @@ export interface AlertProps {
   className?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -78,6 +79,7 @@ const Alert: AlertInterface = ({
   showIcon,
   closable,
   closeText,
+  action,
   ...props
 }) => {
   const [closing, setClosing] = React.useState(false);
@@ -116,7 +118,7 @@ const Alert: AlertInterface = ({
     // use outline icon in alert with description
     const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
     if (icon) {
-      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
+      return replaceElement(icon, <div className={`${prefixCls}-icon`}>{icon}</div>, () => ({
         className: classNames(`${prefixCls}-icon`, {
           [(icon as any).props.className]: (icon as any).props.className,
         }),
@@ -134,12 +136,25 @@ const Alert: AlertInterface = ({
         tabIndex={0}
       >
         {closeText ? (
-          <span className={`${prefixCls}-close-text`}>{closeText}</span>
+          <div className={`${prefixCls}-close-text`}>{closeText}</div>
         ) : (
           <CloseOutlined />
         )}
       </button>
     ) : null;
+  };
+
+  const renderAction = () => {
+    if (action) {
+      return (
+        <div className={`${prefixCls}-action-wrap`}>
+          <div className={`${prefixCls}-action`}>{action}</div>
+          {renderCloseIcon()}
+        </div>
+      );
+    }
+
+    return renderCloseIcon();
   };
 
   // banner 模式默认有 Icon
@@ -154,6 +169,7 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-closable`]: isClosable,
+      [`${prefixCls}-actionable`]: !!action,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -179,10 +195,14 @@ const Alert: AlertInterface = ({
         role="alert"
         {...dataOrAriaProps}
       >
-        {isShowIcon ? renderIconNode() : null}
-        <span className={`${prefixCls}-message`}>{message}</span>
-        <span className={`${prefixCls}-description`}>{description}</span>
-        {renderCloseIcon()}
+        <div className={`${prefixCls}-content`}>
+          {isShowIcon ? renderIconNode() : null}
+          <div className={`${prefixCls}-text-wrap`}>
+            <div className={`${prefixCls}-message`}>{message}</div>
+            <div className={`${prefixCls}-description`}>{description}</div>
+          </div>
+        </div>
+        {renderAction()}
       </div>
     </Animate>
   );
