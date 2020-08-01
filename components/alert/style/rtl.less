@@ -3,31 +3,28 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
-@alert-action-gutter: 8px;
-
 .@{alert-prefix-cls} {
   &&-rtl {
+    padding: 8px 15px;
     direction: rtl;
   }
 
-  &&-closable:not(&-actionable) {
+  &&-no-icon {
+    .@{alert-prefix-cls}-rtl& {
+      padding: @alert-no-icon-padding-vertical 15px;
+    }
+  }
+
+  &&-closable {
     .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding-left: 30px;
+    }
+  }
+
+  &&-no-icon&-closable {
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
       padding-right: 15px;
-    }
-  }
-
-  &-icon {
-    .@{alert-prefix-cls}-rtl & {
-      margin-left: 7px;
-      margin-right: initial;
-    }
-  }
-
-  &-action-wrap {
-    .@{alert-prefix-cls}-rtl & {
-      margin-right: auto;
-      margin-left: initial;
+      padding-left: 30px;
     }
   }
 
@@ -38,28 +35,38 @@
     }
   }
 
-  &-with-description {
+  &&-with-description {
     .@{alert-prefix-cls}-rtl& {
       padding: @alert-with-description-padding-vertical @alert-with-description-icon-size
-        @alert-with-description-padding-vertical 15px;
+        @alert-with-description-padding-vertical @alert-with-description-padding-vertical;
     }
   }
 
   &-with-description&-no-icon {
-    .@{alert-prefix-cls}-rtl& {
-      padding: @alert-with-description-no-icon-padding-vertical 15px;
+    .@{alert-prefix-cls}.@{alert-prefix-cls}-rtl& {
+      padding: 15px;
     }
   }
 
-  &-with-description &-icon {
-    .@{alert-prefix-cls}-rtl& {
+  &-icon {
+    .@{alert-prefix-cls}-rtl & {
+      margin-left: 7px;
+      margin-right: initial;
+    }
+    .@{alert-prefix-cls}-rtl.@{alert-prefix-cls}-with-description & {
       margin-left: @alert-with-description-padding-vertical;
     }
   }
 
-  &-rtl&-actionable &-close-icon {
-    margin-right: @alert-action-gutter;
-    margin-left: initial;
+  &-action {
+    .@{alert-prefix-cls}-rtl & {
+      margin-right: auto;
+      margin-left: initial;
+    }
+    .@{alert-prefix-cls}-rtl.@{alert-prefix-cls}-closable & {
+      margin-right: auto;
+      margin-left: @alert-action-gutter;
+    }
   }
 
   &-with-description &-close-icon {

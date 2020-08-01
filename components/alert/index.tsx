@@ -144,19 +144,6 @@ const Alert: AlertInterface = ({
     ) : null;
   };
 
-  const renderAction = () => {
-    if (action) {
-      return (
-        <div className={`${prefixCls}-action-wrap`}>
-          <div className={`${prefixCls}-action`}>{action}</div>
-          {renderCloseIcon()}
-        </div>
-      );
-    }
-
-    return renderCloseIcon();
-  };
-
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
@@ -195,14 +182,18 @@ const Alert: AlertInterface = ({
         role="alert"
         {...dataOrAriaProps}
       >
-        <div className={`${prefixCls}-content`}>
-          {isShowIcon ? renderIconNode() : null}
-          <div className={`${prefixCls}-text-wrap`}>
-            <div className={`${prefixCls}-message`}>{message}</div>
-            <div className={`${prefixCls}-description`}>{description}</div>
+        <div className={`${prefixCls}-offset-content-wrap`}>
+          <div className={`${prefixCls}-content`}>
+            {isShowIcon ? renderIconNode() : null}
+            <div className={`${prefixCls}-text-wrap`}>
+              <div className={`${prefixCls}-message`}>{message}</div>
+              <div className={`${prefixCls}-description`}>{description}</div>
+            </div>
           </div>
+          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
         </div>
-        {renderAction()}
+
+        {renderCloseIcon()}
       </div>
     </Animate>
   );

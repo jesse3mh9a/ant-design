@@ -28,7 +28,7 @@ ReactDOM.render(
           Accept
         </Button>
       }
-      closeText="Close Now"
+      closable
     />
     <Alert
       message="Success Text Success Text Success Text Success Text Success Text Success Text"
@@ -38,7 +38,7 @@ ReactDOM.render(
           Accept
         </Button>
       }
-      closeText="Close Now"
+      closable
     />
     <Alert
       message="Success Text Success Text Success Text Success Text Success Text Success Text"
@@ -79,7 +79,6 @@ ReactDOM.render(
           Undo
         </Button>
       }
-      closeText="Close Now"
     />
     <Alert
       message="Success Text"
@@ -102,8 +101,7 @@ ReactDOM.render(
     <Alert
       message="Success Text"
       type="success"
-      // description="Detailed description and advices about successful copywriting."
-      closeText="Close Now"
+      closable
       action={
         <Button type="text" size="small">
           Agree

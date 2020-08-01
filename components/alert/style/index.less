@@ -3,14 +3,8 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
-@alert-action-gutter: 8px;
-
 .@{alert-prefix-cls} {
   .reset-component;
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
 
   position: relative;
   max-height: 1000vh;
@@ -26,28 +20,50 @@
     }
   }
 
-  &&-actionable {
-    padding: 8px 15px 8px - @alert-action-gutter 15px;
-  }
-
-  &&-actionable-no-icon {
-    padding: @alert-no-icon-padding-vertical 15px @alert-no-icon-padding-vertical -
-      @alert-action-gutter 15px;
-  }
-
-  &&-actionable&-with-description {
-    padding: @alert-with-description-padding-vertical 15px @alert-with-description-padding-vertical -
-      @alert-action-gutter 15px;
-  }
-
-  &&-closable:not(&-actionable) {
+  &&-closable {
     padding-right: 30px;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+
+    .@{alert-prefix-cls}-actionable & {
+      padding-bottom: @alert-action-gutter;
+    }
+  }
+
+  &-icon {
+    margin-right: 7px;
+    .@{alert-prefix-cls}-with-description & {
+      align-self: flex-start;
+      margin-right: @alert-with-description-padding-vertical;
+      font-size: @alert-with-description-icon-size;
+    }
   }
 
   &-description {
     display: none;
     font-size: @font-size-base;
     line-height: @font-size-base + 8px;
+  }
+
+  &-offset-content-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .@{alert-prefix-cls}-actionable & {
+      margin-bottom: -@alert-action-gutter;
+    }
+  }
+
+  &-action {
+    margin-left: auto;
+    padding-bottom: @alert-action-gutter;
+    .@{alert-prefix-cls}-closable & {
+      margin-right: @alert-action-gutter;
+    }
   }
 
   &-success {
@@ -120,8 +136,8 @@
 
   &-with-description {
     position: relative;
-    padding: @alert-with-description-padding-vertical 15px @alert-with-description-padding-vertical
-      @alert-with-description-icon-size;
+    padding: @alert-with-description-padding-vertical @alert-with-description-padding-vertical
+      @alert-with-description-padding-vertical @alert-with-description-icon-size;
     color: @alert-text-color;
     line-height: @line-height-base;
     border-radius: @border-radius-base;
@@ -139,35 +155,11 @@
     cursor: pointer;
   }
 
-  &&-actionable &-close-icon {
-    position: static;
-    margin-left: @alert-action-gutter;
-  }
-
   &-with-description &-message {
     display: block;
     margin-bottom: 4px;
     color: @alert-message-color;
     font-size: @font-size-lg;
-  }
-
-  &-with-description &-icon {
-    align-self: flex-start;
-    font-size: @alert-with-description-icon-size;
-    margin-right: @alert-with-description-padding-vertical;
-  }
-
-  &-icon {
-    margin-right: 7px;
-  }
-
-  &-actionable &-content {
-    padding-bottom: @alert-action-gutter;
-  }
-
-  &-content {
-    display: flex;
-    align-items: center;
   }
 
   &-message {
@@ -176,13 +168,6 @@
 
   &-with-description &-description {
     display: block;
-  }
-
-  &-action-wrap {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    padding-bottom: @alert-action-gutter;
   }
 
   &&-closing {
