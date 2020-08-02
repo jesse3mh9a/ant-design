@@ -18,10 +18,9 @@ import { Alert, Button } from 'antd';
 
 ReactDOM.render(
   <>
-    <p>测试中, 暂时用例会较多</p>
-    <br />
     <Alert
-      message="Success Text"
+      message="Success Tips"
+      description="Detailed description and advice about successful copywriting."
       type="success"
       action={
         <Button size="small" type="text">
@@ -30,83 +29,41 @@ ReactDOM.render(
       }
       closable
     />
+
     <Alert
-      message="Success Text Success Text Success Text Success Text Success Text Success Text"
-      type="success"
-      action={
-        <Button size="small" type="text">
-          Accept
-        </Button>
-      }
-      closable
-    />
-    <Alert
-      message="Success Text Success Text Success Text Success Text Success Text Success Text"
-      type="success"
-      action={
-        <Button size="small" type="text">
-          Accept
-        </Button>
-      }
-      closable
-    />
-    <Alert
-      message="Success Text"
-      type="success"
-      action={
-        <Button size="small" type="text">
-          Undo
-        </Button>
-      }
-    />
-    <Alert
-      message="Success Text"
-      type="success"
-      action={
-        <Button type="text" size="small">
-          Accept
-        </Button>
-      }
-      closable
-    />
-    <Alert
-      message="Success Text"
+      message="Success Tips"
+      description="Detailed description and advice about successful copywriting."
       type="success"
       showIcon
-      description="Detailed description and advices about successful copywriting."
       action={
-        <Button type="text" size="small">
-          Undo
-        </Button>
-      }
-    />
-    <Alert
-      message="Success Text"
-      type="success"
-      showIcon
-      description="Detailed description and advices about successful copywriting."
-    />
-    <Alert
-      message="Success Text"
-      type="success"
-      showIcon
-      description="Detailed descript"
-      action={
-        <Button type="danger" size="small" ghost>
-          decline
+        <Button size="small" type="text">
+          Accept
         </Button>
       }
       closable
     />
+
     <Alert
-      message="Success Text"
+      message="Success Tips"
       type="success"
-      closable
+      showIcon
       action={
-        <Button type="text" size="small">
-          Agree
+        <Button size="small" type="text">
+          Accept
         </Button>
       }
+      closable
+    />
+
+    <Alert
+      message="Success Tips"
+      type="success"
+      action={
+        <Button size="small" type="text">
+          Accept
+        </Button>
+      }
+      closable
     />
   </>,
   mountNode,
