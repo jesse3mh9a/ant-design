@@ -14,10 +14,40 @@ title:
 Additional defining Handling events with React elements.
 
 ```tsx
-import { Alert, Button } from 'antd';
+import React, { useState } from 'react';
+import { Alert, Button, Space } from 'antd';
+
+const CloseInAction = () => {
+  const [shouldClose, setShouldClose] = useState(false);
+
+  const handleClose = () => {
+    setShouldClose(true);
+  };
+
+  return (
+    <Alert
+      shouldClose={shouldClose}
+      message="Close in action"
+      description="Add shouldClose for handle close from outside"
+      type="info"
+      showIcon
+      action={
+        <Space>
+          <Button size="small" type="text">
+            Other
+          </Button>
+          <Button size="small" type="primary" ghost onClick={handleClose}>
+            Close
+          </Button>
+        </Space>
+      }
+    />
+  );
+};
 
 ReactDOM.render(
   <>
+    <CloseInAction />
     <Alert
       message="Success Tips"
       description="Detailed description and advice about successful copywriting."

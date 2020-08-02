@@ -43,6 +43,7 @@ export interface AlertProps {
   banner?: boolean;
   icon?: React.ReactNode;
   action?: React.ReactNode;
+  shouldClose?: boolean;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
@@ -80,6 +81,7 @@ const Alert: AlertInterface = ({
   closable,
   closeText,
   action,
+  shouldClose,
   ...props
 }) => {
   const [closing, setClosing] = React.useState(false);
@@ -93,6 +95,12 @@ const Alert: AlertInterface = ({
     setClosing(true);
     props.onClose?.(e);
   };
+
+  React.useEffect(() => {
+    if (shouldClose) {
+      setClosing(true);
+    }
+  }, [shouldClose]);
 
   const animationEnd = () => {
     setClosing(false);
