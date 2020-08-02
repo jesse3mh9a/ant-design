@@ -61,17 +61,16 @@
   &-action {
     margin-left: auto;
     padding-bottom: @alert-action-gutter;
+  }
 
-    .@{alert-prefix-cls}-closable & {
-      margin-right: @padding-md + @font-size-sm + @alert-action-gutter - 30px;
-    }
+  &:not(&-rtl)&-closable &-action {
+    margin-right: @padding-md + @font-size-sm + @alert-action-gutter - 30px;
 
-    .@{alert-prefix-cls}-closable.@{alert-prefix-cls}-with-description & {
+    .@{alert-prefix-cls}-with-description& {
       margin-right: @padding-md + @font-size-base + @alert-action-gutter - 30px;
     }
 
-    .@{alert-prefix-cls}-closable.@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon
-      & {
+    .@{alert-prefix-cls}-with-description.@{alert-prefix-cls}-no-icon& {
       margin-right: @padding-md + @font-size-base + @alert-action-gutter - 15px;
     }
   }
