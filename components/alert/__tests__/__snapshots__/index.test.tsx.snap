@@ -7,24 +7,28 @@ exports[`Alert ErrorBoundary 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-offset-content-wrap"
   >
     <div
-      class="ant-alert-text-wrap"
+      class="ant-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-text-wrap"
       >
-        ReferenceError: NotExisted is not defined
-      </div>
-      <div
-        class="ant-alert-description"
-      >
-        <pre>
-              in ThrowError
+        <div
+          class="ant-alert-message"
+        >
+          ReferenceError: NotExisted is not defined
+        </div>
+        <div
+          class="ant-alert-description"
+        >
+          <pre>
+                in ThrowError
     in ErrorBoundary (created by WrapperComponent)
     in WrapperComponent
-        </pre>
+          </pre>
+        </div>
       </div>
     </div>
   </div>
@@ -38,24 +42,28 @@ exports[`Alert could accept none react element icon 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-offset-content-wrap"
   >
     <div
-      class="ant-alert-icon"
-    >
-      icon
-    </div>
-    <div
-      class="ant-alert-text-wrap"
+      class="ant-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-icon"
       >
-        Success Tips
+        icon
       </div>
       <div
-        class="ant-alert-description"
-      />
+        class="ant-alert-text-wrap"
+      >
+        <div
+          class="ant-alert-message"
+        >
+          Success Tips
+        </div>
+        <div
+          class="ant-alert-description"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -68,17 +76,21 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-offset-content-wrap"
   >
     <div
-      class="ant-alert-text-wrap"
+      class="ant-alert-content"
     >
       <div
-        class="ant-alert-message"
-      />
-      <div
-        class="ant-alert-description"
-      />
+        class="ant-alert-text-wrap"
+      >
+        <div
+          class="ant-alert-message"
+        />
+        <div
+          class="ant-alert-description"
+        />
+      </div>
     </div>
   </div>
 </div>
