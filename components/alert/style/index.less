@@ -27,6 +27,7 @@
   &-content {
     display: flex;
     align-items: center;
+    flex: 1;
 
     .@{alert-prefix-cls}-actionable & {
       padding-bottom: @alert-action-gutter;
@@ -48,7 +49,7 @@
     line-height: @font-size-base + 8px;
   }
 
-  &-offset-content-wrap {
+  &-offset-wrap {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -59,7 +60,7 @@
   }
 
   &-action {
-    margin-left: auto;
+    margin-left: @alert-action-gutter;
     padding-bottom: @alert-action-gutter;
   }
 

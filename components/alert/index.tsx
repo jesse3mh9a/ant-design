@@ -190,17 +190,16 @@ const Alert: AlertInterface = ({
         role="alert"
         {...dataOrAriaProps}
       >
-        <div className={`${prefixCls}-offset-content-wrap`}>
+        <div className={`${prefixCls}-offset-wrap`}>
           <div className={`${prefixCls}-content`}>
             {isShowIcon ? renderIconNode() : null}
-            <div className={`${prefixCls}-text-wrap`}>
+            <div>
               <div className={`${prefixCls}-message`}>{message}</div>
               <div className={`${prefixCls}-description`}>{description}</div>
             </div>
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
         </div>
-
         {renderCloseIcon()}
       </div>
     </Animate>
