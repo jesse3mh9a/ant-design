@@ -2,33 +2,27 @@
 
 exports[`Alert ErrorBoundary 1`] = `
 <div
-  class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+  class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-flex-layout"
   data-show="true"
   role="alert"
 >
   <div
-    class="ant-alert-offset-content-wrap"
+    class="ant-alert-content"
   >
-    <div
-      class="ant-alert-content"
-    >
+    <div>
       <div
-        class="ant-alert-text-wrap"
+        class="ant-alert-message"
       >
-        <div
-          class="ant-alert-message"
-        >
-          ReferenceError: NotExisted is not defined
-        </div>
-        <div
-          class="ant-alert-description"
-        >
-          <pre>
-                in ThrowError
+        ReferenceError: NotExisted is not defined
+      </div>
+      <div
+        class="ant-alert-description"
+      >
+        <pre>
+              in ThrowError
     in ErrorBoundary (created by WrapperComponent)
     in WrapperComponent
-          </pre>
-        </div>
+        </pre>
       </div>
     </div>
   </div>
@@ -37,33 +31,27 @@ exports[`Alert ErrorBoundary 1`] = `
 
 exports[`Alert could accept none react element icon 1`] = `
 <div
-  class="ant-alert ant-alert-success"
+  class="ant-alert ant-alert-success ant-alert-flex-layout"
   data-show="true"
   role="alert"
 >
   <div
-    class="ant-alert-offset-content-wrap"
+    class="ant-alert-content"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-icon"
     >
+      icon
+    </div>
+    <div>
       <div
-        class="ant-alert-icon"
+        class="ant-alert-message"
       >
-        icon
+        Success Tips
       </div>
       <div
-        class="ant-alert-text-wrap"
-      >
-        <div
-          class="ant-alert-message"
-        >
-          Success Tips
-        </div>
-        <div
-          class="ant-alert-description"
-        />
-      </div>
+        class="ant-alert-description"
+      />
     </div>
   </div>
 </div>
@@ -71,26 +59,20 @@ exports[`Alert could accept none react element icon 1`] = `
 
 exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
+  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-flex-layout ant-alert-rtl"
   data-show="true"
   role="alert"
 >
   <div
-    class="ant-alert-offset-content-wrap"
+    class="ant-alert-content"
   >
-    <div
-      class="ant-alert-content"
-    >
+    <div>
       <div
-        class="ant-alert-text-wrap"
-      >
-        <div
-          class="ant-alert-message"
-        />
-        <div
-          class="ant-alert-description"
-        />
-      </div>
+        class="ant-alert-message"
+      />
+      <div
+        class="ant-alert-description"
+      />
     </div>
   </div>
 </div>
