@@ -24,6 +24,18 @@
     padding-right: 30px;
   }
 
+  &-flex-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &-offset-wrap {
+    .@{alert-prefix-cls}-actionable & {
+      margin-bottom: -@alert-action-gutter;
+    }
+  }
+
   &-content {
     display: flex;
     align-items: center;
@@ -47,16 +59,6 @@
     display: none;
     font-size: @font-size-base;
     line-height: @font-size-base + 8px;
-  }
-
-  &-offset-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    .@{alert-prefix-cls}-actionable & {
-      margin-bottom: -@alert-action-gutter;
-    }
   }
 
   &-action {

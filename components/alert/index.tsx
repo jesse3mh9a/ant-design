@@ -67,6 +67,11 @@ interface AlertInterface extends React.FC<AlertProps> {
   ErrorBoundary: typeof ErrorBoundary;
 }
 
+interface OffsetLayoutProps {
+  offset?: boolean;
+  children: React.ReactNode;
+}
+
 const Alert: AlertInterface = ({
   description,
   prefixCls: customizePrefixCls,
@@ -155,6 +160,10 @@ const Alert: AlertInterface = ({
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
+  const flexLayoutCls = `${prefixCls}-flex-layout`;
+
+  const actionable = !!action;
+
   const alertCls = classNames(
     prefixCls,
     `${prefixCls}-${type}`,
@@ -164,11 +173,20 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,
       [`${prefixCls}-closable`]: isClosable,
-      [`${prefixCls}-actionable`]: !!action,
+      [`${prefixCls}-actionable`]: actionable,
+      [flexLayoutCls]: !actionable,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );
+
+  const OffsetLayout = ({ offset, children }: OffsetLayoutProps) => {
+    if (offset)
+      return (
+        <div className={classNames(`${prefixCls}-offset-wrap`, flexLayoutCls)}>{children}</div>
+      );
+    return <>{children}</>;
+  };
 
   const dataOrAriaProps = getDataOrAriaProps(props);
 
@@ -190,7 +208,7 @@ const Alert: AlertInterface = ({
         role="alert"
         {...dataOrAriaProps}
       >
-        <div className={`${prefixCls}-offset-wrap`}>
+        <OffsetLayout offset={actionable}>
           <div className={`${prefixCls}-content`}>
             {isShowIcon ? renderIconNode() : null}
             <div>
@@ -199,7 +217,7 @@ const Alert: AlertInterface = ({
             </div>
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
-        </div>
+        </OffsetLayout>
         {renderCloseIcon()}
       </div>
     </Animate>
