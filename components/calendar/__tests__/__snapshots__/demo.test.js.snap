@@ -4201,18 +4201,24 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
 exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-flex-layout"
     data-show="true"
     role="alert"
   >
-    <span
-      class="ant-alert-message"
+    <div
+      class="ant-alert-content"
     >
-      You selected date: 2017-01-25
-    </span>
-    <span
-      class="ant-alert-description"
-    />
+      <div>
+        <div
+          class="ant-alert-message"
+        >
+          You selected date: 2017-01-25
+        </div>
+        <div
+          class="ant-alert-description"
+        />
+      </div>
+    </div>
   </div>,
   <div
     class="ant-picker-calendar ant-picker-calendar-full"
