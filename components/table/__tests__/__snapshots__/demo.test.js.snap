@@ -15238,57 +15238,25 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
           class="ant-table-container"
         >
           <div
-            class="ant-table-content"
-            style="overflow-x:auto;overflow-y:hidden"
+            class="ant-table-header ant-table-sticky-header"
+            style="overflow:hidden;top:0"
           >
             <table
-              style="width:1500px;min-width:100%;table-layout:fixed"
+              style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup>
-                <col
-                  style="width:100px;min-width:100px"
-                />
-                <col
-                  style="width:100px;min-width:100px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col
-                  style="width:150px;min-width:150px"
-                />
-                <col />
-                <col
-                  style="width:100px;min-width:100px"
-                />
-              </colgroup>
+              <colgroup />
               <thead
                 class="ant-table-thead"
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-sticky"
                     style="position:sticky;left:0"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-sticky"
                     style="position:sticky;left:0"
                   >
                     Age
@@ -15334,13 +15302,55 @@ exports[`renders ./components/table/demo/sticky.md correctly 1`] = `
                     Column 8
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first ant-table-cell-fix-sticky"
                     style="position:sticky;right:0"
                   >
                     Action
                   </th>
                 </tr>
               </thead>
+            </table>
+          </div>
+          <div
+            class="ant-table-body"
+            style="overflow-x:auto;overflow-y:hidden"
+          >
+            <table
+              style="width:1500px;min-width:100%;table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+              </colgroup>
               <tbody
                 class="ant-table-tbody"
               >
