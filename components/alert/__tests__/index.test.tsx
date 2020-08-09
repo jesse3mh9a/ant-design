@@ -110,4 +110,23 @@ describe('Alert', () => {
     const wrapper = mount(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
     expect(wrapper).toMatchRenderedSnapshot();
   });
+
+  it('could be closed in action', () => {
+    const wrapper = mount(
+      <Alert
+        message="Close in action"
+        shouldClose={false}
+        action={
+          <div
+            onClick={() => {
+              wrapper.setProps({ shouldClose: true });
+            }}
+          >
+            action
+          </div>
+        }
+      />,
+    );
+    wrapper.find('.ant-alert-action').first().simulate('click');
+  });
 });
