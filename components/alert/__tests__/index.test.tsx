@@ -111,22 +111,10 @@ describe('Alert', () => {
     expect(wrapper).toMatchRenderedSnapshot();
   });
 
-  it('could be closed in action', () => {
-    const wrapper = mount(
-      <Alert
-        message="Close in action"
-        shouldClose={false}
-        action={
-          <div
-            onClick={() => {
-              wrapper.setProps({ shouldClose: true });
-            }}
-          >
-            action
-          </div>
-        }
-      />,
-    );
-    wrapper.find('.ant-alert-action').first().simulate('click');
+  it('could be closed on shouldClose changed from outside', () => {
+    const wrapper = mount(<Alert message="Close in action" shouldClose={false} />);
+    wrapper.setProps({ shouldClose: true });
+    wrapper.update();
+    expect(wrapper.find('.ant-alert').hasClass('ant-alert-closing')).toBe(true);
   });
 });
