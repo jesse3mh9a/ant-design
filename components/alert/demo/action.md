@@ -1,7 +1,7 @@
 ---
 order: 13
 title:
-  zh-CN: 基本
+  zh-CN: 操作
   en-US: Action
 ---
 
