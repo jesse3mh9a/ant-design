@@ -15,16 +15,19 @@ debug: true
 Customize label & wrapper style
 
 ```tsx
-import { Descriptions, Divider, Switch, Radio } from 'antd';
+import { Descriptions, Divider, Switch, Radio, Button } from 'antd';
 
 const labelStyle: React.CSSProperties = { background: 'red' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
 
+const massOfTransparentBorder = Array(50).fill(1);
+
 const Demo = () => {
   const [border, setBorder] = React.useState(true);
   const [layout, setLayout] = React.useState('horizontal' as LayoutType);
+  const [collapse, setCollapse] = React.useState(true);
 
   return (
     <>
@@ -65,6 +68,25 @@ const Demo = () => {
           YES
         </Descriptions.Item>
       </Descriptions>
+      <Descriptions bordered column={1} labelStyle={{ width: '30%' }}>
+        <Descriptions.Item label="A">a</Descriptions.Item>
+        <Descriptions.Item label="B">b</Descriptions.Item>
+        <Descriptions.Item label="C">c</Descriptions.Item>
+        {massOfTransparentBorder.map((_, i) => (
+          <Descriptions.Item
+            key={i}
+            style={collapse ? { display: 'none' } : {}}
+            label="D"
+            labelStyle={labelStyle}
+            contentStyle={contentStyle}
+          >
+            collapsible rendered elements
+          </Descriptions.Item>
+        ))}
+      </Descriptions>
+      <Button type="primary" onClick={() => setCollapse(!collapse)}>
+        {collapse ? 'Expand' : 'Collapse'}
+      </Button>
     </>
   );
 };
